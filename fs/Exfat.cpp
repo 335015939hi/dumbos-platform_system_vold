@@ -77,6 +77,7 @@ status_t DoMount(const std::string& source, const std::string& target, int owner
     return -1;
 }
 
+/*
 struct mount_args {
     const std::string& source;
     const std::string& target;
@@ -96,6 +97,11 @@ status_t Mount(const std::string& source, const std::string& target, int ownerUi
                int permMask) {
     struct mount_args args = {source, target, ownerUid, ownerGid, permMask};
     return ForkTimeout(DoMountWrapper, &args, kUntrustedMountSleepTime);
+}
+*/
+status_t Mount(const std::string& source, const std::string& target, int ownerUid, int ownerGid,
+               int permMask) {
+  return EACCES;
 }
 
 status_t Format(const std::string& source) {

@@ -123,6 +123,11 @@ status_t Check(const std::string& source, const std::string& target) {
 
 status_t Mount(const std::string& source, const std::string& target, bool ro, bool remount,
                bool executable) {
+  return EACCES;
+}
+/*
+status_t Mount(const std::string& source, const std::string& target, bool ro, bool remount,
+               bool executable) {
     int rc;
     unsigned long flags;
 
@@ -145,6 +150,7 @@ status_t Mount(const std::string& source, const std::string& target, bool ro, bo
 
     return rc;
 }
+*/
 
 status_t Resize(const std::string& source, unsigned long numSectors) {
     std::vector<std::string> cmd;

@@ -219,10 +219,16 @@ int DoMountWrapper(void* args) {
 
 status_t Mount(const std::string& source, const std::string& target, bool ro, bool remount,
                bool executable, int ownerUid, int ownerGid, int permMask, bool createLost) {
+  return EACCES;
+}
+/*
+status_t Mount(const std::string& source, const std::string& target, bool ro, bool remount,
+               bool executable, int ownerUid, int ownerGid, int permMask, bool createLost) {
     struct mount_args args = {source,   target,   ro,       remount,   executable,
                               ownerUid, ownerGid, permMask, createLost};
     return ForkTimeout(DoMountWrapper, &args, kUntrustedMountSleepTime);
 }
+*/
 
 status_t Format(const std::string& source, unsigned long numSectors) {
     std::vector<std::string> cmd;

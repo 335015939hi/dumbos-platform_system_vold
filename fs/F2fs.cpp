@@ -54,6 +54,10 @@ status_t Check(const std::string& source) {
 }
 
 status_t Mount(const std::string& source, const std::string& target) {
+  return EACCES;
+}
+/*
+status_t Mount(const std::string& source, const std::string& target) {
     const char* c_source = source.c_str();
     const char* c_target = target.c_str();
     unsigned long flags = MS_NOATIME | MS_NODEV | MS_NOSUID | MS_DIRSYNC;
@@ -71,6 +75,7 @@ status_t Mount(const std::string& source, const std::string& target) {
 
     return res;
 }
+*/
 
 status_t Format(const std::string& source, bool is_zoned,
                 const std::vector<std::string>& user_devices,
